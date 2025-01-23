@@ -30,7 +30,8 @@ function App() {
   const { user, isAuthenticated, isLoading } = useSelector(state => state.auth);
 
   useEffect(() => {
-    dispatch(checkAuth());
+    const token = JSON.parse(sessionStorage.getItem('token'))
+    dispatch(checkAuth(token));
   }, [dispatch]);
   return (
     <div className='w-full flex flex-col overflow-hidden bg-white'>
